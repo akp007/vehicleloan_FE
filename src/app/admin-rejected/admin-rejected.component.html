@@ -1,6 +1,6 @@
 <div class="topnav">
   <ul style="list-style-type: none;">
-    <img src="../assets/images/logo/logo_idea4.png" width="30%" height="90px" class="logo">
+    <img src="../assets/images/LoanLogo.jpg" width="15%" height="75px" class="logo">  
     <li><a style=" color:white;" [routerLink]="['/adminDashboardLink']">View Applications</a></li>
     <li><a style=" color:white" [routerLink]="['/adminClientsLink']">Clients</a></li>
     <li><a style=" color:black;font-weight: bolder;" [routerLink]="['/adminRejectedLink']">Rejected</a></li>
@@ -9,19 +9,22 @@
 </div>
 <br>
   <table id="transactions" style="margin-top: 5px;margin-bottom: 50px;">
-    <tr>
+    <tr>    
+      <th>Loan Id</th>
       <th>First Name</th>
       <th>Last Name</th>
       <th>Email</th>
       <th>Phone</th>
+      <th>Address</th>
       <th>City</th>
     </tr>
-
     <tr *ngFor = "let loan of loan">
+      <td>{{loan.loanId}}</td>
       <td>{{loan.customer.custFirstName}}</td>
       <td>{{loan.customer.custLastName}}</td>
       <td>{{loan.customer.email}}</td>
       <td>{{loan.customer.phone}}</td>
+      <td>{{loan.customer.address}}</td>
       <td>{{loan.customer.city}}</td> 
     </tr>
   </table>

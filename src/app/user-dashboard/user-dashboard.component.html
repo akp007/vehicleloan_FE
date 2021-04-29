@@ -3,7 +3,7 @@
     <img src="../assets/images/LoanLogo.jpg" width=15% height="75px" class="logo">
     <li><a [routerLink]="['/userDashboardLink']">Dashboard</a></li>
     <li><a [routerLink]="['/applyLink']" >Apply for Loan</a></li>
-    <li><button class="dropbtn" (click)="logout()">Logout</button></li>
+    <li><button class="dropbtn" (click)="logout()"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;Logout</button></li>
   </ul>
 </div>
  <div class="leftbox">
@@ -13,14 +13,14 @@
      <li class="var_nav">
         <div class="link_bg"></div>
         <div class="link_title">
-          <i class="fa fa-user" aria-hidden="true"></i>
+          <i id="icon" class="fa fa-user" aria-hidden="true"></i>
           <a style="font-size: 23px;" (click)="profile()">Profile</a>
         </div>
      </li>
      <li class="var_nav">
         <div class="link_bg"></div>
         <div class="link_title">
-          <i class="fa fa-info-circle" aria-hidden="true"></i>
+          <i id="icon" class="fa fa-info-circle" aria-hidden="true"></i>
           <!-- <i class="fa fa-money" aria-hidden="true"></i> -->
           <a style="font-size: 23px;" (click)="loan()">Loans</a>
         </div>

@@ -2,9 +2,7 @@
   <ul style="list-style-type: none;">
     <img src="../assets/images/LoanLogo.jpg" width=15% height="75px" class="logo">
     <li><a [routerLink]="['/userDashboardLink']">Dashboard</a></li>
-    <li>
-        <button class="dropbtn" (click)="logout()">Logout</button>
-    </li>
+    <li><button class="dropbtn" (click)="logout()"><i class="fa fa-sign-in" aria-hidden="true"></i>&nbsp;Logout</button></li>
   </ul>
 </div>
 <br>
@@ -24,23 +22,29 @@
         <h4>Bank Details</h4><br>
   
         <label >Bank Name</label>
-        <input type="text" #bn="ngModel" [(ngModel)]="cust.bankName"  placeholder="Example SBI" class="form-control "name="bname" required>
+        <input type="text" #bn="ngModel" [(ngModel)]="cust.bankName" pattern="^[a-zA-Z]+$"  placeholder="Example SBI" class="form-control "name="bname" required>
         <div *ngIf="bn.invalid && (bn.dirty || bn.touched)" style="color: red; border: red;">
           <div *ngIf="bn.errors.required">
             Bank Name is Required.
           </div>
+          <div *ngIf="bn.errors.pattern">
+            Invalid Bank Name
+          </div>
         </div><br>
   
         <label >Branch</label>
-        <input type="text" #br="ngModel" [(ngModel)]="cust.branchName"  placeholder="Example Bhandup" class="form-control "name="branch" required >
+        <input type="text" #br="ngModel" [(ngModel)]="cust.branchName" pattern="^[a-zA-Z]+$" placeholder="Example Bhandup" class="form-control "name="branch" required >
         <div *ngIf="br.invalid && (br.dirty || br.touched)" style="color: red; border: red;">
           <div *ngIf="br.errors.required">
             Branch Name is Required.
           </div> 
+          <div *ngIf="br.errors.pattern">
+            Invalid branch name.
+          </div> 
         </div><br>
   
         <label >Account Number</label>
-        <input type="text" #an="ngModel" [(ngModel)]="cust.accountNumber" placeholder="Example SBI56478332" class="form-control" name="acno" required>
+        <input type="text" #an="ngModel" [(ngModel)]="cust.accountNumber" pattern = "^\d{9,18}$" placeholder="Example SBI56478332" class="form-control" name="acno" required>
         <div *ngIf="an.invalid && (an.dirty || an.touched)" style="color: red; border: red;">
           <div *ngIf="an.errors.required">
               Account Number is required.
@@ -48,16 +52,22 @@
           <div *ngIf="an.errors.minlength">
               Invalid...Must contain min 9 Characters
           </div>
+          <div *ngIf="an.errors.pattern">
+            Invalid account number
+        </div>
         </div><br>
   
         <label>IFSC Code</label>
-        <input type="text" #cd="ngModel"  minlength="11" [(ngModel)]="cust.ifsc" placeholder="Example SBI37489202" class="form-control" name="ifsc" required>
+        <input type="text" #cd="ngModel"  minlength="11"  pattern = "^[A-Z]{4}0[A-Z0-9]{6}$" [(ngModel)]="cust.ifsc" placeholder="Example SBI37489202" class="form-control" name="ifsc" required>
         <div *ngIf="cd.invalid && (cd.dirty || cd.touched)" style="color: red; border: red;">
           <div *ngIf="cd.errors.required">
             IFSC code is required.
           </div>
           <div *ngIf="cd.errors.minlength">
             Invalid...Must Contain 11 Characters
+          </div>
+          <div *ngIf="cd.errors.pattern">
+            Invalid IFSC code
           </div>
         </div><br><br>
                             
